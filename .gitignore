@@ -1,0 +1,12 @@
+# vscode
+
+.settings/
+.vscode/
+bin/
+.classpath
+.project
+
+# LÖVE
+
+*.love
+
