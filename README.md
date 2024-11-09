@@ -45,4 +45,3 @@ Item sprites, character portraits and dungeon background music are licensed unde
 [Image font on the LÖVE wiki](https://love2d.org/wiki/File:Resource-Imagefont.png) was uploaded by Technocat.
 
 [Enter Command](https://www.dafont.com/enter-command.font) is licensed under [Creative Commons Attribution 4.0 International](https://creativecommons.org/licenses/by/4.0/) by jeti.
-

@@ -4,4 +4,3 @@ run: build
 	love based_game.love
 clean:
 	rm *.love
-
