@@ -27,6 +27,14 @@ function createChest(x, y, id)
         end
     end
 
+    function chest:draw()
+        if self.state == 0 then
+            love.graphics.draw(love.graphics.newImage('sprites/misc/chest_closed.png'), self.x, self.y)
+        elseif self.state == 1 then
+            love.graphics.draw(love.graphics.newImage('sprites/misc/chest_open.png'), self.x, self.y)
+        end
+    end
+
     table.insert(chests, chest)
 end
 
@@ -41,12 +49,7 @@ function chests:update(dt)
 end
 
 function chests:draw()
-    love.graphics.setColor(1, 1, 1, 1)
     for _,c in ipairs(chests) do
-        if c.state == 0 then
-            love.graphics.draw(love.graphics.newImage('sprites/misc/chest_closed.png'), c.x, c.y)
-        elseif c.state == 1 then
-            love.graphics.draw(love.graphics.newImage('sprites/misc/chest_open.png'), c.x, c.y)
-        end
+        c:draw(dt)
     end
 end
