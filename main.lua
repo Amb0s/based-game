@@ -48,10 +48,31 @@ end
 
 function love.draw()
     cam:attach()
+
     drawMap()
-    chests:draw()
-    npcs:draw()
-    player:draw()
+
+    -- Merge object tables and sort them.
+    objects = {unpack(npcs), unpack(chests)}
+    table.sort(objects, function(a, b) return a.y < b.y end)
+
+    local isDrawn = false
+
+    for i,_ in ipairs(objects) do
+        if not isDrawn and objects[i].y > player.y then
+            player:draw()
+            isDrawn = true
+        end
+        chests:draw()
+        npcs:draw()
+    end
+
+    -- If the player is below all objects, they won't be drawn within the for loop.
+    if not isDrawn then
+        player:draw()
+    end
+
+    -- Foreground objects go here...
+    -- (nothing at the moment)
 
     if debug then
         world:draw()
